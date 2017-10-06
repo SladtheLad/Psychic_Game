@@ -1,20 +1,42 @@
+var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
+ "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+
 var wins = 0;
 var losses = 0;
-var totalGuess = 0;
-var wrongGuess = [];
+var guesses = 9;
+var guessesLeft = 9;
+var letterToGuess = null;
+var guessedLetters = [];
   
 
-console.log(wins);
-console.log(losses);
-console.log(totalGuess);
 
-var userGuess = document.getElementById("user-guess");
 
-document.onkeyup = function (event) {
-    userGuess.textContent = event.key;
-    wrongGuess.push(userGuess);
+
+document.onkeyup = function(event) {
+    guessesLeft--;
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+    guessedLetters.push(userGuess);
+    updateGuessesLeft();
+    updateGuessesSoFar();
+
+    if (guessesLeft > 0) {
+        if (userGuess == letterToGuess) {
+            wins++;
+            document.querySelector('#wins').innerHTML = "Wins: " + wins;
+            alert("Yes, you are psychic!");
+            reset();
+        }
+    } else if (guessesLeft == 0) {
+        // Then we will loss and we'll update the html to display the loss 
+        losses++;
+        document.querySelector('#losses').innerHTML = "Losses: " + losses;
+        alert("Sorry, you're not psychic, maybe try again?");
+        // Then we'll call the reset. 
+        reset();
+    }
 };
-
 
 
 
