@@ -3,16 +3,16 @@
 }
 
 html, body{
-    color: #242222;
-    background-image: url("");
+  color: #242222;
+  background-image: url("");
 	border-color: #dddddd;
 	font-size: 18px;
 	line-height: 34px;
 	font-family: 'Sedgwick Ave Display', cursive;
 	background-image: url("assets/images/jersey-shore_BROS.jpeg");
-    background-repeat: no-repeat;
-    background-color: #f3579b;  
-    height: 100%;  	
+  background-repeat: no-repeat;
+  background-color: #f3579b;  
+  height: 100%;  	
 }
 .wrapper {
   min-height: 100%;
@@ -20,20 +20,7 @@ html, body{
   height: 100%;
   margin: 0 auto -4em;
 }
-.mainHeader{
-	columns: 
-}
+
 #game{
 	text-align: left;
-}
-#container{
-	width: 100%;
-	max-width: 960px;
-	margin: 0 auto;
-	clear: both;	
-}
-
-.footer, .push {
-  height: 4em;
-  text-align: center;
 }
