@@ -44,11 +44,17 @@ updateGuessesLeft();
 // WHERE THE MAGIC HAPPENS
 
 document.onkeyup = function (event) {
-    guessesLeft--;
     var userGuess = String.fromCharCode(event.keyCode);
-    guessedLetters.push(userGuess);
-    updateGuessesLeft();
-    updateGuessesSoFar();
+
+
+    if (guessedLetters.indexOf(userGuess) !== -1) {
+        alert("You already guessed that letter, bruh! Try again, brah.");
+    } else {
+        guessesLeft -= 1;
+        guessedLetters.push(userGuess);
+        updateGuessesLeft();
+        updateGuessesSoFar();
+    }
 
     if (guessesLeft > 0) {
         if (userGuess === letterToGuess) {
@@ -63,6 +69,9 @@ document.onkeyup = function (event) {
         alert("Bruh, you're not really psychic, are you?");
         reset();
     } 
+
+
+
 };
 
 
